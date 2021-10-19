@@ -9,6 +9,17 @@ gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
+#Add rspec-rails to both the :development and :test groups.
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
+#Add factory_bot_rails, shoulda_matchers, faker and database_cleaner to the :test group.
+group :test do
+  gem 'factory_bot_rails', '~> 4.0'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'faker'
+  gem 'database_cleaner'
+end
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
