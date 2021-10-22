@@ -4,7 +4,7 @@ RSpec.describe Busine, type: :model do
   let (:name) {"Restaurant"}
   let (:owner) {"Andrés Meral"}
   let (:mercantil_code) {"AD89T7"}
-  
+
   context 'association with service model' do
     # Association test
     # ensure Busine model has a 1:m relationship with the Service model

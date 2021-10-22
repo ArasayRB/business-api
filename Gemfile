@@ -11,12 +11,12 @@ gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 5.0'
 # Add rspec-rails to both the :development and :test groups.
 group :development, :test do
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 4.0'
 end
 # Add factory_bot_rails, shoulda_matchers, faker and database_cleaner to the :test group.
 group :test do
   gem 'factory_bot_rails', '~> 4.0'
-  gem 'shoulda-matchers', '~> 3.1'
+  gem 'shoulda-matchers', '~> 5.0'
   gem 'faker'
   gem 'database_cleaner'
 end
