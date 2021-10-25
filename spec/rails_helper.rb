@@ -68,7 +68,7 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-# Start configuration api post
+# Start Shoulda configuration api post
   # [...]
   # configure shoulda matchers to use rspec as the test framework and full matcher libraries for rails
   Shoulda::Matchers.configure do |config|
@@ -77,9 +77,9 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
-
+# End Shoulda configuration api post
   # [...]
-  RSpec.configure do |config|
+    # Start Rspec configuration api post
     # [...]
     # add `FactoryBot` methods
     config.include FactoryBot::Syntax::Methods
@@ -99,6 +99,5 @@ RSpec.configure do |config|
       end
     end
     # [...]
-  end
-  # End configuration api post
+    # END Rspec configuration api post
 end
