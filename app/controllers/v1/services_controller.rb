@@ -1,4 +1,5 @@
-class ServicesController < ApplicationController
+module V1
+  class ServicesController < ApplicationController
   before_action :set_busine
   before_action :set_busine_service, only: [:show, :update, :destroy]
 
@@ -42,5 +43,6 @@ class ServicesController < ApplicationController
 
   def set_busine_service
     @service = @busine.services.find_by!(id: params[:id]) if @busine
+  end
   end
 end

@@ -11,13 +11,14 @@ gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 5.0'
 # Add rspec-rails to both the :development and :test groups.
 group :development, :test do
-  gem 'rspec-rails', '~> 4.0'
+  gem 'rspec-rails', '~> 4.0'  
+  gem 'faker'
 end
 # Add factory_bot_rails, shoulda_matchers, faker and database_cleaner to the :test group.
 group :test do
   gem 'factory_bot_rails', '~> 4.0'
   gem 'shoulda-matchers', '~> 5.0'
-  gem 'faker'
+  #gem 'faker'
   gem 'database_cleaner'
 end
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -29,6 +30,12 @@ end
 
 # Use JSON Web Token
  gem 'jwt'
+
+ # Serializers allow for custom representations of JSON responses
+ gem 'active_model_serializers', '~> 0.10.0'
+
+ # Pagination gem
+ gem 'will_paginate', '~> 3.1.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
