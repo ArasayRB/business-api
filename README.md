@@ -8,6 +8,9 @@ This is an JSON API small example in develop of how you can create an API RESTfu
 
 -Until now this API allow access to routes:
 
+POST /signup 	Signup
+POST /auth/login 	Login
+GET /auth/logout 	Logout
 GET /todos 	List all todos
 POST /todos 	Create a new todo
 GET /todos/:id 	Get a todo
@@ -17,11 +20,6 @@ GET /todos/:id/items 	Get a todo item
 PUT /todos/:id/items 	Update a todo item
 DELETE /todos/:id/items 	Delete a todo item
 
--And we need add:
-
-POST /signup 	Signup
-POST /auth/login 	Login
-GET /auth/logout 	Logout
 
 * Ruby version: 6.1.4
 
@@ -43,6 +41,6 @@ This API use Rspec, Shoulda, Faker, Factory and Database Cleaner for Test. Then 
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-Execute 'bundle install' 
+Execute 'bundle install'
 
 * ...
