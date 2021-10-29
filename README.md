@@ -4,21 +4,21 @@ This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
-This is an JSON API small example in develop of how you can create an API RESTfull.
+This is an small example developed to show how you can create an API JSON RESTful since begining.
 
--Until now this API allow access to routes:
+-Until now this API Endpoints:
 
-POST /signup 	Signup
-POST /auth/login 	Login
-GET /auth/logout 	Logout
-GET /todos 	List all todos
-POST /todos 	Create a new todo
-GET /todos/:id 	Get a todo
-PUT /todos/:id 	Update a todo
-DELETE /todos/:id 	Delete a todo and its items
-GET /todos/:id/items 	Get a todo item
-PUT /todos/:id/items 	Update a todo item
-DELETE /todos/:id/items 	Delete a todo item
+* POST /signup 	Signup
+* POST /auth/login 	Login
+* GET /auth/logout 	Logout
+* GET /busines 	List all busines
+* POST /busines 	Create a new busine
+* GET /busines/:id 	Get a busine
+* PUT /busines/:id 	Update a busine
+* DELETE /busines/:id 	Delete a busine and its services
+* GET /busines/:id/services 	Get a busine service
+* PUT /busines/:id/services 	Update a busine service
+* DELETE /busines/:id/services 	Delete a busine service
 
 
 * Ruby version: 6.1.4
