@@ -1,15 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe 'Services API' do
+  let(:user) { create(:user) }
   # Initialize the test data
-  let!(:busine) { create(:busine) }
+  let!(:busine) { create(:busine, owner: user.id) }
   let!(:services) { create_list(:service, 20, busine_id: busine.id) }
   let(:busine_id) { busine.id }
   let(:id) { services.first.id }
+  let(:headers) { valid_headers }
 
   # Test suite for GET /busines/:busine_id/services
   describe 'GET /busines/:busine_id/services' do
-    before { get "/busines/#{busine_id}/services" }
+    before { get "/busines/#{busine_id}/services", params: {}, headers: headers }
 
     context 'when busine exists' do
       it 'returns status code 200' do
@@ -36,7 +38,7 @@ RSpec.describe 'Services API' do
 
   # Test suite for GET /busines/:busine_id/services/:id
   describe 'GET /busines/:busine_id/services/:id' do
-    before { get "/busines/#{busine_id}/services/#{id}" }
+    before { get "/busines/#{busine_id}/services/#{id}", params: {}, headers: headers }
 
     context 'when busine service exists' do
       it 'returns status code 200' do
@@ -63,10 +65,10 @@ RSpec.describe 'Services API' do
 
   # Test suite for PUT /busines/:busine_id/services
   describe 'POST /busines/:busine_id/services' do
-    let(:valid_attributes) { { title: 'Monta a Caballo', aproximate_price: 23.8, description:'Paseo a caballo con guía incluido a cascada trinitaria', top_people: 2, min_people: 4 } }
+    let(:valid_attributes) { { title: 'Monta a Caballo', aproximate_price: 23.8, description:'Paseo a caballo con guía incluido a cascada trinitaria', top_people: 2, min_people: 4 }.to_json }
 
     context 'when request attributes are valid' do
-      before { post "/busines/#{busine_id}/services", params: valid_attributes }
+      before { post "/busines/#{busine_id}/services", params: valid_attributes, headers: headers }
 
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
@@ -74,7 +76,7 @@ RSpec.describe 'Services API' do
     end
 
     context 'when an invalid request' do
-      before { post "/busines/#{busine_id}/services", params: {} }
+      before { post "/busines/#{busine_id}/services", params: {}, headers: headers }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -88,9 +90,9 @@ RSpec.describe 'Services API' do
 
   # Test suite for PUT /busines/:busine_id/services/:id
   describe 'PUT /busines/:busine_id/services/:id' do
-    let(:valid_attributes) { { title: 'Mozart' } }
+    let(:valid_attributes) { { title: 'Mozart' }.to_json }
 
-    before { put "/busines/#{busine_id}/services/#{id}", params: valid_attributes }
+    before { put "/busines/#{busine_id}/services/#{id}", params: valid_attributes, headers: headers }
 
     context 'when service exists' do
       it 'returns status code 204' do
@@ -118,7 +120,7 @@ RSpec.describe 'Services API' do
 
   # Test suite for DELETE /busines/:id
   describe 'DELETE /busines/:id' do
-    before { delete "/busines/#{busine_id}/services/#{id}" }
+    before { delete "/busines/#{busine_id}/services/#{id}", params: {}, headers: headers }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)

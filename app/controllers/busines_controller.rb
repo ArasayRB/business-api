@@ -3,13 +3,13 @@ class BusinesController < ApplicationController
 
   # GET /busines
   def index
-    @busines = Busine.all
+    @busines = current_user.busines
     json_response(@busines)
   end
 
   # POST /busines
   def create
-    @busine = Busine.create!(busine_params)
+    @busine = current_user.busines.create!(busine_params)
     json_response(@busine, :created)
   end
 
@@ -34,7 +34,7 @@ class BusinesController < ApplicationController
 
   def busine_params
     # whitelist params
-    params.permit(:name, :owner, :mercantil_code, :address, :description)
+    params.permit(:name, :mercantil_code, :address, :description)
   end
 
   def set_busine

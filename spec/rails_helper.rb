@@ -89,7 +89,8 @@ RSpec.configure do |config|
       DatabaseCleaner.clean_with(:truncation)
       DatabaseCleaner.strategy = :transaction
 
-    config.include RequestSpecHelper, type: :request
+    config.include RequestSpecHelper
+    config.include ControllerSpecHelper
     end
 
     # start the transaction strategy as examples are run
